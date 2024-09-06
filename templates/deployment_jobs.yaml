@@ -91,19 +91,19 @@ spec:
                 name: {{ template "retool.fullname" . }}
           {{- end }}
                 key: postgresql-password
-          - name: RESTRICTED_DOMAIN
-            value: {{ .Values.config.ssoRestrictedDomain | default "" | quote }}
-          - name: BASE_DOMAIN
-            value: {{ .Values.config.baseDomain | quote }}
           - name: GITHUB_APP_ID
             value: {{ .Values.config.githubAppId | default "" | quote }}
           - name: GITHUB_APP_INSTALLATION_ID
             value: {{ .Values.config.githubAppInstallationId | default "" | quote }}
           - name: GITHUB_APP_PRIVATE_KEY
             value: {{ .Values.config.githubAppPrivateKey | default "" | quote }}
+          {{- end }}
+          - name: RESTRICTED_DOMAIN
+            value: {{ .Values.config.ssoRestrictedDomain | default "" | quote }}
+          - name: BASE_DOMAIN
+            value: {{ .Values.config.baseDomain | quote }}
           - name: VERSION_CONTROL_LOCKED
             value: {{ .Values.config.versionControlLocked | default "" | quote }}
-          {{- end }}
           {{- range $key, $value := .Values.env }}
           - name: "{{ $key }}"
             value: "{{ $value }}"

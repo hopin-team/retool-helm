@@ -94,10 +94,6 @@ spec:
                 key: postgresql-password
           - name: SCIM_AUTH_TOKEN
             value: {{ default "" .Values.config.auth.onelogin.scimAuthToken | quote }}
-          - name: RESTRICTED_DOMAIN
-            value: {{ default "" .Values.config.ssoRestrictedDomain | quote }}
-          - name: BASE_DOMAIN
-            value: {{ default "" .Values.config.baseDomain | quote }}
           - name: GITHUB_APP_ID
             value: {{ default "" .Values.config.githubAppId | quote }}
           - name: GITHUB_APP_INSTALLATION_ID
@@ -105,6 +101,10 @@ spec:
           - name: GITHUB_APP_PRIVATE_KEY
             value: {{ default "" .Values.config.githubAppPrivateKey | quote }}
           {{- end }}
+          - name: RESTRICTED_DOMAIN
+            value: {{ default "" .Values.config.ssoRestrictedDomain | quote }}
+          - name: BASE_DOMAIN
+            value: {{ default "" .Values.config.baseDomain | quote }}
           {{- range $key, $value := .Values.env }}
           - name: "{{ $key }}"
             value: "{{ $value }}"
