@@ -76,7 +76,7 @@ ingress:
   # servicePort: service-port
 
 postgresql:
-  enabled: true
+  enabled: false
   ssl_enabled: false
   postgresqlDatabase: hammerhead_production
   postgresqlUsername: retool
